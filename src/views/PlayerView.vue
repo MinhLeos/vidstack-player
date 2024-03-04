@@ -33,10 +33,10 @@ onMounted(() => {
    * </media-provider>
    * ```
    */
-
-    for (const track of textTracks) {
-      $player.value!.textTracks.add(track);
-    }
+  document.body.click()
+  for (const track of textTracks) {
+    $player.value!.textTracks.add(track)
+  }
   //   console.log('$player.value!.textTracks', $player.value!.textTracks);
 
   //   $player.value!.textTracks.addEventListener('add', (event) => {
