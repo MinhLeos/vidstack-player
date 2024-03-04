@@ -1,20 +1,28 @@
 <script setup lang="ts">
-import CaptionButton from '../buttons/CaptionButton.vue';
-import FullscreenButton from '../buttons/FullscreenButton.vue';
-import MuteButton from '../buttons/MuteButton.vue';
-import PIPButton from '../buttons/PIPButton.vue';
-import PlayButton from '../buttons/PlayButton.vue';
-import Captions from '../Captions.vue';
-import ChapterTitle from '../ChapterTitle.vue';
-import Gestures from '../Gestures.vue';
-import SettingsMenu from '../menus/SettingsMenu.vue';
-import TimeSlider from '../sliders/TimeSlider.vue';
-import VolumeSlider from '../sliders/VolumeSlider.vue';
-import TimeGroup from '../TimeGroup.vue';
+import { onMounted, ref } from 'vue'
+import CaptionButton from '../buttons/CaptionButton.vue'
+import FullscreenButton from '../buttons/FullscreenButton.vue'
+import MuteButton from '../buttons/MuteButton.vue'
+import PIPButton from '../buttons/PIPButton.vue'
+import PlayButton from '../buttons/PlayButton.vue'
+import Captions from '../Captions.vue'
+import ChapterTitle from '../ChapterTitle.vue'
+import Gestures from '../Gestures.vue'
+import SettingsMenu from '../menus/SettingsMenu.vue'
+import TimeSlider from '../sliders/TimeSlider.vue'
+import VolumeSlider from '../sliders/VolumeSlider.vue'
+import TimeGroup from '../TimeGroup.vue'
 
 const { thumbnails } = defineProps<{
-  thumbnails?: string;
-}>();
+  thumbnails?: string
+}>()
+const isMobile = ref(false)
+
+onMounted(() => {
+  console.log('---', document.body.clientWidth)
+  isMobile.value = document.body.clientWidth <= 768
+  console.log('--- isMobile.value', isMobile.value)
+})
 </script>
 
 <template>
@@ -34,10 +42,12 @@ const { thumbnails } = defineProps<{
       <TimeGroup />
       <ChapterTitle />
       <div class="flex-1" />
-      <CaptionButton tooltip-placement="top" />
-      <SettingsMenu placement="top end" tooltip-placement="top" />
-      <PIPButton tooltip-placement="top" />
-      <FullscreenButton tooltip-placement="top end" />
+      <div class="flex absolute top-0 right-0 md:relative">
+        <CaptionButton tooltip-placement="top" />
+        <SettingsMenu :placement="isMobile ? 'bottom end' : 'top end'" tooltip-placement="top" />
+        <PIPButton tooltip-placement="top" />
+        <FullscreenButton tooltip-placement="top end" />
+      </div>
     </media-controls-group>
   </media-controls>
 </template>

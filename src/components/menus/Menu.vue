@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { MenuPlacement, TooltipPlacement } from 'vidstack';
+import type { MenuPlacement, TooltipPlacement } from 'vidstack'
 
-import Tooltip from '../Tooltip.vue';
+import Tooltip from '../Tooltip.vue'
 
 const { placement, tooltipPlacement } = defineProps<{
-  placement: MenuPlacement;
-  tooltipPlacement: TooltipPlacement;
-}>();
+  placement: MenuPlacement
+  tooltipPlacement: TooltipPlacement
+}>()
 </script>
 
 <template>
@@ -26,6 +26,7 @@ const { placement, tooltipPlacement } = defineProps<{
     </Tooltip>
     <!-- Menu Items -->
     <media-menu-items
+      id="test-id"
       class="animate-out fade-out slide-out-to-bottom-2 data-[open]:animate-in data-[open]:fade-in data-[open]:slide-in-from-bottom-4 flex h-[var(--menu-height)] max-h-[400px] min-w-[260px] flex-col overflow-y-auto overscroll-y-contain rounded-md border border-white/10 bg-black/95 p-2.5 font-sans text-[15px] font-medium outline-none backdrop-blur-sm transition-[height] duration-300 will-change-[height] data-[resizing]:overflow-hidden"
       :placement="placement"
     >
