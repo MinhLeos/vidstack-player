@@ -22,6 +22,12 @@ onMounted(() => {
   console.log('---', document.body.clientWidth)
   isMobile.value = document.body.clientWidth <= 768
   console.log('--- isMobile.value', isMobile.value)
+
+  window.addEventListener('resize', () => {
+    console.log('---resize', document.body.clientWidth)
+    isMobile.value = document.body.clientWidth <= 768
+    console.log('---resize isMobile.value', isMobile.value)
+  })
 })
 </script>
 
@@ -35,17 +41,17 @@ onMounted(() => {
     <media-controls-group class="flex w-full items-center px-2">
       <TimeSlider :thumbnails="thumbnails" />
     </media-controls-group>
-    <media-controls-group class="-mt-0.5 flex w-full items-center px-2 pb-2">
+    <media-controls-group class="-mt-0.5 flex w-full items-center px-2 pb-2 gap-5 md:gap-0">
       <PlayButton tooltip-placement="top start" />
       <MuteButton tooltip-placement="top" />
       <VolumeSlider />
       <TimeGroup />
-      <ChapterTitle />
+      <ChapterTitle class="hidden md:block" />
       <div class="flex-1" />
       <div class="flex absolute top-0 right-0 md:relative">
-        <CaptionButton tooltip-placement="top" />
+        <CaptionButton :is-show="!isMobile" tooltip-placement="top" />
         <SettingsMenu :placement="isMobile ? 'bottom end' : 'top end'" tooltip-placement="top" />
-        <PIPButton tooltip-placement="top" />
+        <PIPButton :is-show="!isMobile" tooltip-placement="top" />
         <FullscreenButton tooltip-placement="top end" />
       </div>
     </media-controls-group>
