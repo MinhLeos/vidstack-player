@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { TooltipPlacement } from 'vidstack';
+import type { TooltipPlacement } from 'vidstack'
 
-import Tooltip from '../Tooltip.vue';
+import Tooltip from '../Tooltip.vue'
 
 const { tooltipPlacement } = defineProps<{
-  tooltipPlacement: TooltipPlacement;
-}>();
+  tooltipPlacement: TooltipPlacement
+}>()
 </script>
 
 <template>
@@ -17,13 +17,13 @@ const { tooltipPlacement } = defineProps<{
         <media-icon class="media-paused:block hidden h-8 w-8" type="play" />
         <media-icon class="media-paused:hidden h-8 w-8" type="pause" />
       </media-play-button>
+      <!-- Backward -10s on each press. -->
+      <media-seek-button :seconds="-10" class="h-8 w-8">
+        <media-icon type="seek-backward-10" class="h-8 w-8"></media-icon>
+      </media-seek-button>
       <media-seek-button :seconds="+10" class="h-8 w-8">
-          <media-icon type="seek-forward-10" class="h-8 w-8" mk-d></media-icon>
-        </media-seek-button>
-     <!-- Backward -10s on each press. -->
-        <media-seek-button :seconds="-10" class="h-8 w-8">
-          <media-icon type="seek-backward-10" class="h-8 w-8"></media-icon>
-        </media-seek-button>
+        <media-icon type="seek-forward-10" class="h-8 w-8" mk-d></media-icon>
+      </media-seek-button>
     </template>
 
     <template #content>

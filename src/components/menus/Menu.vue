@@ -9,6 +9,7 @@ const { placement, tooltipPlacement, isMobile, isHorizontalScreen } = defineProp
   isMobile: boolean
   isHorizontalScreen: boolean
 }>()
+//!fixed !top-[unset] !left-0 !bottom-0 !w-full
 </script>
 
 <template>
@@ -28,8 +29,8 @@ const { placement, tooltipPlacement, isMobile, isHorizontalScreen } = defineProp
     </Tooltip>
     <!-- Menu Items -->
     <media-menu-items
-      :class="`${isMobile ? '!fixed !top-[unset] !left-0 !bottom-0 !w-full' : ''} ${isHorizontalScreen ? '!max-h-[300px]' : ''}`"
-      class="animate-out fade-out slide-out-to-bottom-2 data-[open]:animate-in data-[open]:fade-in data-[open]:slide-in-from-bottom-4 flex h-[var(--menu-height)] max-h-[400px] min-w-[260px] flex-col overflow-y-auto overscroll-y-contain rounded-md border border-white/10 bg-black/95 p-2.5 font-sans text-[15px] font-medium outline-none backdrop-blur-sm transition-[height] duration-300 will-change-[height] data-[resizing]:overflow-hidden"
+      :class="`${isMobile ? '!fixed !bottom-[unset] !left-0 !top-0 !w-full !max-w-[300px]' : ''} ${isHorizontalScreen ? '!max-h-[300px]' : ''}`"
+      class="!z-20 animate-out fade-out slide-out-to-bottom-2 data-[open]:animate-in data-[open]:fade-in data-[open]:slide-in-from-bottom-4 flex h-[var(--menu-height)] max-h-[400px] min-w-[260px] flex-col overflow-y-auto overscroll-y-contain rounded-md border border-white/10 bg-black/95 p-2.5 font-sans text-[15px] font-medium outline-none backdrop-blur-sm transition-[height] duration-300 will-change-[height] data-[resizing]:overflow-hidden"
       :placement="placement"
     >
       <slot name="content" />
