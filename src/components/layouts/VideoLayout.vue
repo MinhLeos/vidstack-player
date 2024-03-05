@@ -16,17 +16,21 @@ import TimeGroup from '../TimeGroup.vue'
 const { thumbnails } = defineProps<{
   thumbnails?: string
 }>()
+const isHorizontalScreen = ref(false)
 const isMobile = ref(false)
 
 onMounted(() => {
-  console.log('---', document.body.clientWidth)
-  isMobile.value = document.body.clientWidth <= 768
-  console.log('--- isMobile.value', isMobile.value)
+  console.log('window.innerWidth', window.innerWidth)
+  console.log('window.innerHeight', window.innerHeight)
+
+  isMobile.value = window.innerWidth <= 768
+  isHorizontalScreen.value = window.innerWidth > window.innerHeight
 
   window.addEventListener('resize', () => {
-    console.log('---resize', document.body.clientWidth)
-    isMobile.value = document.body.clientWidth <= 768
-    console.log('---resize isMobile.value', isMobile.value)
+    console.log('window.innerWidth resize', window.innerWidth)
+    console.log('window.innerHeight resize', window.innerHeight)
+    isMobile.value = window.innerWidth <= 768
+    isHorizontalScreen.value = window.innerWidth > window.innerHeight
   })
 })
 </script>
@@ -50,7 +54,12 @@ onMounted(() => {
       <div class="flex-1" />
       <div class="flex absolute top-0 right-0 md:relative">
         <CaptionButton :is-show="!isMobile" tooltip-placement="top" />
-        <SettingsMenu :isMobile="isMobile" :placement="isMobile ? 'bottom end' : 'top end'" tooltip-placement="top" />
+        <SettingsMenu
+          :isMobile="isMobile"
+          :isHorizontalScreen="isHorizontalScreen"
+          :placement="isMobile ? 'bottom end' : 'top end'"
+          tooltip-placement="top"
+        />
         <PIPButton :is-show="!isMobile" tooltip-placement="top" />
         <FullscreenButton tooltip-placement="top end" />
       </div>

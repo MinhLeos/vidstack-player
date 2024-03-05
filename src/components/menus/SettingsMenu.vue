@@ -6,15 +6,26 @@ import SpeedSubmenu from '../menus/SpeedSubmenu.vue'
 import QualitySubmenu from '../menus/QualitySubmenu.vue'
 import Menu from '../menus/Menu.vue'
 
-const { placement, tooltipPlacement, isMobile } = defineProps<{
+const {
+  placement,
+  tooltipPlacement,
+  isMobile,
+  isHorizontalScreen
+} = defineProps<{
   placement: MenuPlacement
   tooltipPlacement: TooltipPlacement
   isMobile: boolean
+  isHorizontalScreen: boolean
 }>()
 </script>
 
 <template>
-  <Menu :isMobile="isMobile" :placement="placement" :tooltip-placement="tooltipPlacement">
+  <Menu
+    :isHorizontalScreen="isHorizontalScreen"
+    :isMobile="isMobile"
+    :placement="placement"
+    :tooltip-placement="tooltipPlacement"
+  >
     <template #button>
       <media-icon
         class="h-8 w-8 transform transition-transform duration-200 ease-out group-data-[open]:rotate-90"
