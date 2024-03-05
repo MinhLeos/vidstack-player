@@ -61,7 +61,7 @@ onMounted(() => {
     $player.value!.textTracks.addEventListener('add', (event) => {
       const newTrack = event.detail; // `TextTrack`
       console.log('newTrack add', newTrack);
-        if (newTrack.label === 'English D' || newTrack.label === 'English Default') {
+        if (newTrack.label == '' || newTrack.label === 'English Default' || newTrack.label === 'English D') {
             newTrack.mode = 'showing'
         }
       // ...
