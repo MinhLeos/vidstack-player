@@ -29,7 +29,7 @@ const { placement, tooltipPlacement, isMobile, isHorizontalScreen } = defineProp
     </Tooltip>
     <!-- Menu Items -->
     <media-menu-items
-      :class="`${isMobile ? '!bottom-[unset] !left-[unset] !right-20 !top-px !w-full !max-w-[260px] max-height-custom' : ''} ${isHorizontalScreen ? 'max-height-custom' : ''}`"
+      :class="`${isMobile ? '!bottom-[unset] !left-[unset] !right-20 !top-px !w-full !max-w-[260px] max-height-custom' : ''} ${isHorizontalScreen ? 'max-h-[300px]' : ''}`"
       class="text-xs sm:text-sm !z-20 animate-out fade-out slide-out-to-bottom-2 data-[open]:animate-in data-[open]:fade-in data-[open]:slide-in-from-bottom-4 flex h-[var(--menu-height)] max-h-[400px] min-w-[240px] flex-col overflow-y-auto overscroll-y-contain rounded-md border border-white/10 bg-black/95 p-2.5 font-sans text-[15px] font-medium outline-none backdrop-blur-sm transition-[height] duration-300 will-change-[height] data-[resizing]:overflow-hidden"
       :placement="placement"
     >
