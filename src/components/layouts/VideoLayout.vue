@@ -23,13 +23,13 @@ onMounted(() => {
   console.log('window.innerWidth', window.innerWidth)
   console.log('window.innerHeight', window.innerHeight)
 
-  isMobile.value = window.innerWidth <= 768
+  isMobile.value = window.innerWidth <= 640
   isHorizontalScreen.value = window.innerWidth > window.innerHeight
 
   window.addEventListener('resize', () => {
     console.log('window.innerWidth resize', window.innerWidth)
     console.log('window.innerHeight resize', window.innerHeight)
-    isMobile.value = window.innerWidth <= 768
+    isMobile.value = window.innerWidth <= 640
     isHorizontalScreen.value = window.innerWidth > window.innerHeight
   })
 })
@@ -45,14 +45,14 @@ onMounted(() => {
     <media-controls-group class="flex w-full items-center px-2">
       <TimeSlider :thumbnails="thumbnails" />
     </media-controls-group>
-    <media-controls-group class="-mt-0.5 flex w-full items-center px-2 pb-2 gap-5 md:gap-0">
+    <media-controls-group class="-mt-0.5 flex w-full items-center px-2 pb-2 gap-5">
       <PlayButton tooltip-placement="top start" />
       <MuteButton tooltip-placement="top" />
       <VolumeSlider />
       <TimeGroup />
       <!-- <ChapterTitle class="hidden md:block" /> -->
       <div class="flex-1" />
-      <div class="flex absolute top-0 right-0 md:relative">
+      <div class="flex absolute top-0 right-0 sm:relative">
         <CaptionButton :is-show="!isMobile" tooltip-placement="top" />
         <SettingsMenu
           :isMobile="isMobile"
