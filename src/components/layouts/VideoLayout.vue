@@ -60,7 +60,7 @@ onMounted(() => {
           :placement="isMobile ? 'bottom end' : 'top end'"
           tooltip-placement="top"
         />
-        <PIPButton :is-show="!isMobile" tooltip-placement="top" />
+        <!-- <PIPButton :is-show="!isMobile" tooltip-placement="top" /> -->
         <FullscreenButton tooltip-placement="top end" />
       </div>
     </media-controls-group>
