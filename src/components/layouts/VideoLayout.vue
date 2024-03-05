@@ -50,7 +50,7 @@ onMounted(() => {
       <div class="flex-1" />
       <div class="flex absolute top-0 right-0 md:relative">
         <CaptionButton :is-show="!isMobile" tooltip-placement="top" />
-        <SettingsMenu :placement="isMobile ? 'bottom end' : 'top end'" tooltip-placement="top" />
+        <SettingsMenu :isMobile="isMobile" :placement="isMobile ? 'bottom end' : 'top end'" tooltip-placement="top" />
         <PIPButton :is-show="!isMobile" tooltip-placement="top" />
         <FullscreenButton tooltip-placement="top end" />
       </div>

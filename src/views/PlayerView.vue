@@ -99,10 +99,10 @@ function onPlay(event: MediaPlayEvent) {
 </script>
 
 <template>
-  <div class="flex p-10">
+  <div class="flex md:p-10">
     <media-player
       autoplay
-      class="w-full max-w-[1440px] aspect-video bg-slate-900 text-white font-sans overflow-hidden rounded-md ring-media-focus data-[focus]:ring-4 mt-10 mx-auto"
+      class="w-full max-h-[100vh] max-w-[1440px] aspect-video bg-slate-900 text-white font-sans overflow-hidden rounded-md ring-media-focus data-[focus]:ring-4 md:mt-10 md:mx-auto"
       title="Sprite Fight"
       src="https://d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8"
       crossorigin
