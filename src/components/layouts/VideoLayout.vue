@@ -50,7 +50,7 @@ onMounted(() => {
       <MuteButton tooltip-placement="top" />
       <VolumeSlider />
       <TimeGroup />
-      <ChapterTitle class="hidden md:block" />
+      <!-- <ChapterTitle class="hidden md:block" /> -->
       <div class="flex-1" />
       <div class="flex absolute top-0 right-0 md:relative">
         <CaptionButton :is-show="!isMobile" tooltip-placement="top" />

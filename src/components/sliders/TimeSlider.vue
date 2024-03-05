@@ -15,7 +15,7 @@ const { thumbnails } = defineProps<{
     <SliderChapters />
     <SliderThumb />
     <SliderPreview :thumbnails="thumbnails">
-      <div class="mt-2 text-sm" data-part="chapter-title" />
+      <!-- <div class="mt-2 text-sm" data-part="chapter-title" /> -->
       <media-slider-value class="text-[13px]" />
     </SliderPreview>
   </media-time-slider>
