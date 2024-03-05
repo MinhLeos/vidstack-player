@@ -12,17 +12,17 @@ const { tooltipPlacement } = defineProps<{
   <Tooltip :placement="tooltipPlacement">
     <template #trigger>
       <media-play-button
-        class="ring-media-focus relative inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-md outline-none ring-inset hover:bg-white/20 data-[focus]:ring-4"
+        class="ring-media-focus relative inline-flex h-8 w-8 sm:h-10 sm:w-10 cursor-pointer items-center justify-center rounded-md outline-none ring-inset hover:bg-white/20 data-[focus]:ring-4"
       >
-        <media-icon class="media-paused:block hidden h-8 w-8" type="play" />
-        <media-icon class="media-paused:hidden h-8 w-8" type="pause" />
+        <media-icon class="media-paused:block hidden h-6 w-6 sm:h-8 sm:w-8" type="play" />
+        <media-icon class="media-paused:hidden h-6 w-6 sm:h-8 sm:w-8" type="pause" />
       </media-play-button>
       <!-- Backward -10s on each press. -->
-      <media-seek-button :seconds="-10" class="h-8 w-8">
-        <media-icon type="seek-backward-10" class="h-8 w-8"></media-icon>
+      <media-seek-button :seconds="-10" class="h-6 w-6 sm:h-8 sm:w-8">
+        <media-icon type="seek-backward-10" class="h-6 w-6 sm:h-8 sm:w-8"></media-icon>
       </media-seek-button>
-      <media-seek-button :seconds="+10" class="h-8 w-8">
-        <media-icon type="seek-forward-10" class="h-8 w-8" mk-d></media-icon>
+      <media-seek-button :seconds="+10" class="h-6 w-6 sm:h-8 sm:w-8">
+        <media-icon type="seek-forward-10" class="h-6 w-6 sm:h-8 sm:w-8" mk-d></media-icon>
       </media-seek-button>
     </template>
 

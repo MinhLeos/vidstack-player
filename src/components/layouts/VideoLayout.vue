@@ -42,10 +42,10 @@ onMounted(() => {
     class="media-controls:opacity-100 absolute inset-0 z-10 flex h-full w-full flex-col bg-gradient-to-t from-black/10 to-transparent opacity-0 transition-opacity"
   >
     <div class="flex-1" />
-    <media-controls-group class="flex w-full items-center px-2">
+    <media-controls-group class="h-8 sm:h-10 flex w-full items-center px-2">
       <TimeSlider :thumbnails="thumbnails" />
     </media-controls-group>
-    <media-controls-group class="-mt-0.5 flex w-full items-center px-2 pb-2 gap-5">
+    <media-controls-group class="h-8 sm:h-10 -mt-0.5 sm:mt-1 md:mt-2 flex w-full items-center px-2 pb-2 gap-5">
       <PlayButton tooltip-placement="top start" />
       <MuteButton tooltip-placement="top" />
       <VolumeSlider />
