@@ -21,11 +21,21 @@ import { textTracks } from '../constants/tracks'
 
 const $player = ref<MediaPlayerElement>()
 
+const videoUrl = ref('')
 const videoUrlDefault = ref('https://d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8')
+const thumnailUrl = ref('')
 const thumnailUrlDefault = ref(
   'https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/storyboard.vtt'
 )
+const trackUrl = ref('')
 const trackUrlDefault = ref('https://media-files.vidstack.io/sprite-fight/subs/english.vtt')
+const track = {
+  src: 'https://media-files.vidstack.io/sprite-fight/subs/english.vtt',
+  label: 'English 1',
+  language: 'en-US',
+  kind: 'subtitles',
+  default: true
+}
 onMounted(() => {
   /**
    * You can add these tracks using HTML as well.
@@ -38,13 +48,7 @@ onMounted(() => {
    * </media-provider>
    * ```
    */
-  $player.value!.textTracks.add({
-    src: trackUrlDefault.value,
-    label: 'English Default',
-    language: 'en-US',
-    kind: 'subtitles',
-    default: true
-  })
+  //   $player.value!.textTracks.add(track)
   //   console.log('click')
 
   //   document.body.click()
@@ -54,20 +58,20 @@ onMounted(() => {
   //   }
   //   console.log('$player.value!.textTracks', $player.value!.textTracks);
 
-  // $player.value!.textTracks.addEventListener('add', (event) => {
-  //   const newTrack = event.detail; // `TextTrack`
-  //   console.log('newTrack add', newTrack);
-  //     if (newTrack.label == '' || newTrack.label === 'English Default' || newTrack.label === 'English D') {
-  //         newTrack.mode = 'showing'
-  //     }
-  //   // ...
-  // });
-  // $player.value!.textTracks.addEventListener('mode-change', (event) => {
-  //   const newTrack = event.detail; // `TextTrack`
-  //   console.log('newTrack mode-change', newTrack);
+    $player.value!.textTracks.addEventListener('add', (event) => {
+      const newTrack = event.detail; // `TextTrack`
+      console.log('newTrack add', newTrack);
+        if (newTrack.label == '' || newTrack.label === 'English Default' || newTrack.label === 'English D') {
+            newTrack.mode = 'showing'
+        }
+      // ...
+    });
+    $player.value!.textTracks.addEventListener('mode-change', (event) => {
+      const newTrack = event.detail; // `TextTrack`
+      console.log('newTrack mode-change', newTrack);
 
-  //   // ...
-  // });
+      // ...
+    });
 
   //Modify Track
   //   const trackNew = new TextTrack({
@@ -110,9 +114,59 @@ function onPlay(event: MediaPlayEvent) {
   // ...
   console.log('event play', event)
 }
+const handleClick = () => {
+  console.log('videoUrl', videoUrl.value)
+  console.log('thumnailUrl', thumnailUrl.value)
+  console.log('trackUrl', trackUrl.value)
+  if (!videoUrl.value?.trim()) {
+    alert('nhập url')
+    return
+  }
+    $player.value!.textTracks.add({
+      src: trackUrl.value,
+      label: 'English Default',
+      language: 'en-US',
+      kind: 'subtitles',
+      default: true
+    })
+  videoUrlDefault.value = videoUrl.value
+  thumnailUrlDefault.value = thumnailUrl.value
+  trackUrlDefault.value = trackUrl.value
+  //   $player.value!.textTracks.remove(track)
+}
 </script>
 
 <template>
+  <div class="flex flex-col mt-10 ml-10 gap-5 max-w-[1240px]">
+    <label class="flex items-center mb-10 sm:mb-0">
+      <span class="block min-w-[120px]">Video Url</span>
+      <input
+        class="flex-1 border border-solid px-3 py-1"
+        type="text"
+        name="video-url"
+        v-model="videoUrl"
+      />
+    </label>
+    <label class="flex items-center">
+      <span class="block min-w-[120px]">Thumnail Url</span>
+      <input
+        class="flex-1 border border-solid px-3 py-1"
+        type="text"
+        name="video-thumnail"
+        v-model="thumnailUrl"
+      />
+    </label>
+    <label class="flex items-center">
+      <span class="block min-w-[120px]">Caption Url</span>
+      <input
+        class="flex-1 border border-solid px-3 py-1"
+        type="text"
+        name="video-caption"
+        v-model="trackUrl"
+      />
+    </label>
+    <button class="border border-solid w-40 m-auto" @click="handleClick">Load Video</button>
+  </div>
   <div class="flex md:p-10">
     <media-player
       autoplay
@@ -132,14 +186,14 @@ function onPlay(event: MediaPlayEvent) {
           src="https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/thumbnail.webp?time=268&width=1200"
           alt="Girl walks into campfire with gnomes surrounding her friend ready for their next meal!"
         />
-        <!-- <track
+        <track
           :src="trackUrlDefault"
           kind="subtitles"
-          label="English Default"
+          label="English D"
           lang="en-US"
           type="vtt"
           default
-        /> -->
+        />
       </media-provider>
       <VideoLayout :thumbnails="thumnailUrlDefault" />
     </media-player>

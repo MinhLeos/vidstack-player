@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { RouterView, RouterLink } from 'vue-router'
 </script>
 
 <template>
+  <!-- <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/about">Dinamic Video Url</RouterLink>
+  </nav> -->
   <RouterView />
 </template>
 
@@ -22,6 +26,7 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  margin-left: 5rem !important;
 }
 
 nav a.router-link-exact-active {
