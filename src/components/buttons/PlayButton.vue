@@ -18,10 +18,10 @@ const { tooltipPlacement } = defineProps<{
         <media-icon class="media-paused:hidden h-6 w-6 sm:h-8 sm:w-8" type="pause" />
       </media-play-button>
       <!-- Backward -10s on each press. -->
-      <media-seek-button :seconds="-10" class="h-6 w-6 sm:h-8 sm:w-8">
+      <media-seek-button :seconds="-10" class="shrink-0 h-6 w-6 sm:h-8 sm:w-8">
         <media-icon type="seek-backward-10" class="h-6 w-6 sm:h-8 sm:w-8"></media-icon>
       </media-seek-button>
-      <media-seek-button :seconds="+10" class="h-6 w-6 sm:h-8 sm:w-8">
+      <media-seek-button :seconds="+10" class="shrink-0 h-6 w-6 sm:h-8 sm:w-8">
         <media-icon type="seek-forward-10" class="h-6 w-6 sm:h-8 sm:w-8" mk-d></media-icon>
       </media-seek-button>
     </template>
