@@ -21,11 +21,16 @@ import { textTracks } from '../constants/tracks'
 
 const $player = ref<MediaPlayerElement>()
 
-const videoUrlDefault = ref('https://d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8')
+const videoUrlDefault = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/test-videos_test-by-ngan/test-by-ngan.m3u8')
+// const videoUrlDefault = ref('https://d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8')
 const thumnailUrlDefault = ref(
-  'https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/storyboard.vtt'
+  ''
 )
-const trackUrlDefault = ref('https://media-files.vidstack.io/sprite-fight/subs/english.vtt')
+// const thumnailUrlDefault = ref(
+//   'https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/storyboard.vtt'
+// )
+const trackUrlDefault = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/test-videos_test-by-ngan/transcript.vtt')
+// const trackUrlDefault = ref('https://media-files.vidstack.io/sprite-fight/subs/english.vtt')
 onMounted(() => {
   /**
    * You can add these tracks using HTML as well.
@@ -40,7 +45,7 @@ onMounted(() => {
    */
   $player.value!.textTracks.add({
     src: trackUrlDefault.value,
-    label: 'English Default',
+    label: 'English',
     language: 'en-US',
     kind: 'subtitles',
     default: true

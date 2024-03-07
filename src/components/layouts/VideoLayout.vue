@@ -42,6 +42,9 @@ onMounted(() => {
     class="media-controls:opacity-100 absolute inset-0 z-10 flex h-full w-full flex-col bg-gradient-to-t from-black/10 to-transparent opacity-0 transition-opacity"
   >
     <div class="flex-1" />
+    <!-- <media-controls-group class="h-8 sm:h-10 flex w-full items-center px-2">
+      <PlayButton tooltip-placement="top center" />
+    </media-controls-group> -->
     <media-controls-group class="h-8 sm:h-10 flex w-full items-center px-2">
       <TimeSlider :thumbnails="thumbnails" />
     </media-controls-group>
