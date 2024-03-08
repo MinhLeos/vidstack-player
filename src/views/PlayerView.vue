@@ -147,10 +147,10 @@ function onPlay(event: MediaPlayEvent) {
 </script>
 
 <template>
-  <div class="flex">
+  <div class="tw-video-flex">
     <media-player
       autoplay
-      class="w-full max-h-[100vh] aspect-video bg-slate-900 text-white font-sans overflow-hidden rounded-md ring-media-focus data-[focus]:ring-4 md:mx-auto"
+      class="tw-video-w-full tw-video-max-h-[100vh] tw-video-aspect-video tw-video-bg-slate-900 tw-video-text-white tw-video-font-sans tw-video-overflow-hidden tw-video-rounded-md tw-video-ring-media-focus data-[focus]:tw-video-ring-4 md:tw-video-mx-auto"
       title="Sprite Fight"
       :src="videoUrlDefault"
       crossorigin
@@ -162,7 +162,7 @@ function onPlay(event: MediaPlayEvent) {
     >
       <media-provider>
         <media-poster
-          class="absolute inset-0 block h-full w-full rounded-md opacity-0 transition-opacity data-[visible]:opacity-100 [&>img]:h-full [&>img]:w-full [&>img]:object-cover"
+          class="tw-video-absolute tw-video-inset-0 tw-video-block tw-video-h-full tw-video-w-full tw-video-rounded-md tw-video-opacity-0 tw-video-transition-opacity data-[visible]:tw-video-opacity-100 [&>img]:tw-video-h-full [&>img]:tw-video-w-full [&>img]:tw-video-object-cover"
           :src="posterUrl"
           alt="Girl walks into campfire with gnomes surrounding her friend ready for their next meal!"
         />

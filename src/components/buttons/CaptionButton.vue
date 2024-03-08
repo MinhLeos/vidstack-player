@@ -13,17 +13,17 @@ const { tooltipPlacement, isShow = true } = defineProps<{
   <Tooltip v-if="isShow" :placement="tooltipPlacement">
     <template #trigger>
       <media-caption-button
-        class="ring-media-focus group relative mr-0.5 inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-md outline-none ring-inset hover:bg-white/20 data-[focus]:ring-4 aria-hidden:hidden"
+        class="tw-video-ring-media-focus tw-video-group tw-video-relative tw-video-mr-0.5 tw-video-inline-flex tw-video-h-10 tw-video-w-10 tw-video-cursor-pointer tw-video-items-center tw-video-justify-center tw-video-rounded-md tw-video-outline-none tw-video-ring-inset hover:tw-video-bg-white/20 data-[focus]:tw-video-ring-4 aria-hidden:tw-video-hidden"
       >
-        <media-icon class="media-captions:block hidden h-8 w-8" type="closed-captions-on" />
-        <media-icon class="media-captions:hidden h-8 w-8" type="closed-captions" />
+        <media-icon class="media-captions:tw-video-block tw-video-hidden tw-video-h-8 tw-video-w-8" type="closed-captions-on" />
+        <media-icon class="media-captions:tw-video-hidden tw-video-h-8 tw-video-w-8" type="closed-captions" />
       </media-caption-button>
       
     </template>
 
     <template #content>
-      <span class="media-captions:block hidden">Closed-Captions Off</span>
-      <span class="media-captions:hidden">Closed-Captions On</span>
+      <span class="media-captions:tw-video-block tw-video-hidden">Closed-Captions Off</span>
+      <span class="media-captions:tw-video-hidden">Closed-Captions On</span>
     </template>
   </Tooltip>
 </template>

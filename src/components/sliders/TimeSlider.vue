@@ -10,13 +10,13 @@ const { thumbnails } = defineProps<{
 
 <template>
   <media-time-slider
-    class="group relative mx-[7.5px] inline-flex h-10 w-full cursor-pointer touch-none select-none items-center outline-none"
+    class="tw-video-group tw-video-relative tw-video-mx-[7.5px] inline-tw-video-flex tw-video-h-10 tw-video-w-full tw-video-cursor-pointer tw-video-touch-none tw-video-select-none tw-video-items-center tw-video-outline-none"
   >
     <SliderChapters />
     <SliderThumb />
     <SliderPreview :thumbnails="thumbnails">
-      <!-- <div class="mt-2 text-sm" data-part="chapter-title" /> -->
-      <media-slider-value class="text-[13px]" />
+      <!-- <div class="tw-video-mt-2 text-sm" data-part="chapter-title" /> -->
+      <media-slider-value class="tw-video-text-[13px]" />
     </SliderPreview>
   </media-time-slider>
 </template>

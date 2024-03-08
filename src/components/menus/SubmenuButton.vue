@@ -6,19 +6,19 @@ const { label } = defineProps<{
 
 <template>
   <media-menu-button
-    class="z-[9999] bg-black hover:!z-[9999] hover:!bg-black ring-media-focus parent left-0 flex w-full cursor-pointer select-none items-center justify-start rounded-sm p-2.5 outline-none ring-inset data-[open]:sticky data-[open]:-top-2.5 data-[hocus]:bg-white/10 data-[focus]:ring-[3px] aria-hidden:hidden aria-disabled:hidden"
+    class="tw-video-z-[9999] tw-video-bg-black hover:!tw-video-z-[9999] hover:!tw-video-bg-black tw-video-ring-media-focus tw-video-parent tw-video-left-0 tw-video-flex tw-video-w-full tw-video-cursor-pointer tw-video-select-none tw-video-items-center tw-video-justify-start tw-video-rounded-sm tw-video-p-2.5 tw-video-outline-none tw-video-ring-inset data-[open]:tw-video-sticky data-[open]:-tw-video-top-2.5 data-[hocus]:tw-video-bg-white/10 data-[focus]:tw-video-ring-[3px] aria-hidden:tw-video-hidden aria-disabled:tw-video-hidden"
   >
     <media-icon
-      class="parent-data-[open]:block -ml-0.5 mr-1.5 hidden h-[18px] w-[18px]"
+      class="parent-data-[open]:tw-video-block -tw-video-ml-0.5 tw-video-mr-1.5 tw-video-hidden tw-video-h-[18px] tw-video-w-[18px]"
       type="chevron-left"
     />
-    <div class="contents parent-data-[open]:hidden">
+    <div class="tw-video-contents parent-data-[open]:tw-video-hidden">
       <slot name="icon" />
     </div>
-    <span class="ml-1.5 parent-data-[open]:ml-0">{{ label }}</span>
-    <span class="ml-auto text-xs xsm:text-sm text-white/50" data-part="hint"></span>
+    <span class="tw-video-ml-1.5 parent-data-[open]:tw-video-ml-0">{{ label }}</span>
+    <span class="tw-video-ml-auto tw-video-text-xs xsm:tw-video-text-sm tw-video-text-white/50" data-part="hint"></span>
     <media-icon
-      class="parent-data-[open]:hidden ml-0.5 h-[18px] w-[18px] text-sm text-white/50"
+      class="parent-data-[open]:tw-video-hidden tw-video-ml-0.5 tw-video-h-[18px] tw-video-w-[18px] tw-video-text-sm tw-video-text-white/50"
       type="chevron-right"
     />
   </media-menu-button>

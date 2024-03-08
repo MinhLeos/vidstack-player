@@ -1,6 +1,6 @@
 <template>
   <media-captions
-    class="captions media-preview:opacity-0 media-controls:bottom-[85px] media-captions:opacity-100 absolute inset-0 bottom-2 z-10 select-none break-words opacity-0 transition-[opacity,bottom] duration-300"
+    class="captions media-preview:tw-video-opacity-0 media-controls:tw-video-bottom-[85px] media-captions:tw-video-opacity-100 tw-video-absolute tw-video-inset-0 tw-video-bottom-2 tw-video-z-10 tw-video-select-none tw-video-break-words tw-video-opacity-0 tw-video-transition-[opacity,bottom] tw-video-duration-300"
   />
 </template>
 

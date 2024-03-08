@@ -12,7 +12,7 @@ const { placement } = defineProps<{
       <slot name="trigger" />
     </media-tooltip-trigger>
     <media-tooltip-content
-      class="tooltip animate-out fade-out slide-out-to-bottom-2 data-[visible]:animate-in data-[visible]:fade-in data-[visible]:slide-in-from-bottom-4 z-10 rounded-sm bg-black/90 px-2 py-0.5 text-sm font-medium text-white"
+      class="tooltip tw-video-animate-out tw-video-fade-out tw-video-slide-out-to-bottom-2 data-[visible]:tw-video-animate-in data-[visible]:tw-video-fade-in data-[visible]:tw-video-slide-in-from-bottom-4 tw-video-z-10 tw-video-rounded-sm tw-video-bg-black/90 tw-video-px-2 tw-video-py-0.5 tw-video-text-sm tw-video-font-medium tw-video-text-white"
       :placement="placement"
     >
       <slot name="content" />

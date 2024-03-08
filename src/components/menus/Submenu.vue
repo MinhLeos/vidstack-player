@@ -14,7 +14,7 @@ const { label } = defineProps<{
       </template>
     </SubmenuButton>
     <media-menu-items
-      class="text-xs xsm:text-sm hidden w-full flex-col items-start justify-center outline-none data-[keyboard]:mt-[3px] data-[open]:inline-block"
+      class="tw-video-tw-video-text-xs xsm:tw-video-text-sm tw-video-hidden tw-video-w-full tw-video-flex-col tw-video-items-start tw-video-justify-center tw-video-outline-none data-[keyboard]:tw-video-mt-[3px] data-[open]:tw-video-inline-block"
     >
       <slot name="content" />
     </media-menu-items>

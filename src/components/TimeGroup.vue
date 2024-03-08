@@ -1,7 +1,7 @@
 <template>
-  <div class="ml-1.5 flex items-center text-xs xsm:text-sm font-medium">
+  <div class="tw-video-ml-1.5 tw-video-flex tw-video-items-center tw-video-text-xs xsm:tw-video-text-sm tw-video-font-medium">
     <media-time class="time" type="current" />
-    <div class="mx-1 text-white/80">/</div>
+    <div class="tw-video-mx-1 tw-video-text-white/80">/</div>
     <media-time class="time" type="duration" />
   </div>
 </template>

@@ -6,7 +6,7 @@ import Submenu from './Submenu.vue';
 <template>
   <Submenu label="Quality">
     <template #icon>
-      <media-icon class="h-5 w-5" type="settings-menu" />
+      <media-icon class="tw-video-h-5 tw-video-w-5" type="settings-menu" />
     </template>
     <template #content>
       <media-quality-radio-group class="vds-captions-radio-group vds-radio-group">

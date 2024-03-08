@@ -7,11 +7,11 @@ const { thumbnails, noClamp = false } = defineProps<{
 
 <template>
   <media-slider-preview
-    class="flex flex-col items-center opacity-0 transition-opacity duration-200 data-[visible]:opacity-100 pointer-events-none"
+    class="tw-video-flex tw-video-flex-col tw-video-items-center tw-video-opacity-0 tw-video-transition-opacity tw-video-duration-200 data-[visible]:tw-video-opacity-100 tw-video-pointer-events-none"
     :noClamp="noClamp"
   >
     <media-slider-thumbnail
-      class="block h-[var(--thumbnail-height)] max-h-[160px] min-h-[80px] w-[var(--thumbnail-width)] min-w-[120px] max-w-[180px] overflow-hidden border border-white bg-black"
+      class="tw-video-block tw-video-h-[var(--thumbnail-height)] tw-video-max-h-[160px] tw-video-min-h-[80px] tw-video-w-[var(--thumbnail-width)] tw-video-min-w-[120px] tw-video-max-w-[180px] tw-video-overflow-hidden tw-video-border tw-video-border-white tw-video-bg-black"
       :src="thumbnails"
       v-if="thumbnails"
     />

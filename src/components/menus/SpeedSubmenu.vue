@@ -6,10 +6,10 @@ import Submenu from './Submenu.vue';
 <template>
   <Submenu label="Speed">
     <template #icon>
-      <media-icon class="h-5 w-5" type="odometer" />
+      <media-icon class="tw-video-h-5 tw-video-w-5" type="odometer" />
     </template>
     <template #content>
-      <media-speed-radio-group class="w-full flex flex-col">
+      <media-speed-radio-group class="tw-video-w-full tw-video-flex tw-video-flex-col">
         <template>
           <MenuRadio />
         </template>

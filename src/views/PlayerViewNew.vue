@@ -137,40 +137,40 @@ const handleClick = () => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-10 ml-10 gap-5 max-w-[1240px]">
-    <label class="flex items-center mb-10 xsm:mb-0">
-      <span class="block min-w-[120px]">Video Url</span>
+  <div class="tw-video-flex tw-video-flex-col tw-video-mt-10 tw-video-ml-10 tw-video-gap-5 tw-video-max-w-[1240px]">
+    <label class="tw-video-flex tw-video-items-center tw-video-mb-10 xsm:tw-video-mb-0">
+      <span class="tw-video-block tw-video-min-w-[120px]">Video Url</span>
       <input
-        class="flex-1 border border-solid px-3 py-1"
+        class="tw-video-flex-1 tw-video-border tw-video-border-solid tw-video-px-3 tw-video-py-1"
         type="text"
         name="video-url"
         v-model="videoUrl"
       />
     </label>
-    <label class="flex items-center">
-      <span class="block min-w-[120px]">Thumnail Url</span>
+    <label class="tw-video-flex tw-video-items-center">
+      <span class="tw-video-block tw-video-min-w-[120px]">Thumnail Url</span>
       <input
-        class="flex-1 border border-solid px-3 py-1"
+        class="tw-video-flex-1 tw-video-border tw-video-border-solid tw-video-px-3 tw-video-py-1"
         type="text"
         name="video-thumnail"
         v-model="thumnailUrl"
       />
     </label>
-    <label class="flex items-center">
-      <span class="block min-w-[120px]">Caption Url</span>
+    <label class="tw-video-flex tw-video-items-center">
+      <span class="tw-video-block tw-video-min-w-[120px]">Caption Url</span>
       <input
-        class="flex-1 border border-solid px-3 py-1"
+        class="tw-video-flex-1 tw-video-border tw-video-border-solid tw-video-px-3 tw-video-py-1"
         type="text"
         name="video-caption"
         v-model="trackUrl"
       />
     </label>
-    <button class="border border-solid w-40 m-auto" @click="handleClick">Load Video</button>
+    <button class="tw-video-border tw-video-border-solid tw-video-w-40 tw-video-m-auto" @click="handleClick">Load Video</button>
   </div>
-  <div class="flex md:p-10">
+  <div class="tw-video-flex md:tw-video-p-10">
     <media-player
       autoplay
-      class="w-full max-h-[100vh] max-w-[1440px] aspect-video bg-slate-900 text-white font-sans overflow-hidden rounded-md ring-media-focus data-[focus]:ring-4 md:mt-10 md:mx-auto"
+      class="tw-video-w-full tw-video-max-h-[100vh] tw-video-max-w-[1440px] tw-video-aspect-video tw-video-bg-slate-900 tw-video-text-whittw-video-e font-sans tw-video-overflow-hidden tw-video-rounded-md tw-video-ring-media-focus data-[focus]:tw-video-ring-4 md:tw-video-mt-10 md:tw-video-mx-auto"
       title="Sprite Fight"
       :src="videoUrlDefault"
       crossorigin
@@ -182,7 +182,7 @@ const handleClick = () => {
     >
       <media-provider>
         <media-poster
-          class="absolute inset-0 block h-full w-full rounded-md opacity-0 transition-opacity data-[visible]:opacity-100 [&>img]:h-full [&>img]:w-full [&>img]:object-cover"
+          class="tw-video-absolute tw-video-inset-0 tw-video-block tw-video-h-full tw-video-w-full tw-video-rounded-md tw-video-opacity-0 tw-video-transition-opacity data-[visible]:tw-video-opacity-100 [&>img]:tw-video-h-full [&>img]:tw-video-w-full [&>img]:tw-video-object-cover"
           src="https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/thumbnail.webp?time=268&width=1200"
           alt="Girl walks into campfire with gnomes surrounding her friend ready for their next meal!"
         />

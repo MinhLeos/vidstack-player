@@ -28,7 +28,7 @@ const {
   >
     <template #button>
       <media-icon
-        class="h-8 w-8 transform transition-transform duration-200 ease-out group-data-[open]:rotate-90"
+        class="tw-video-h-8 tw-video-w-8 tw-video-transform tw-video-transition-transform tw-video-duration-200 tw-video-ease-out group-data-[open]:tw-video-rotate-90"
         type="settings"
       />
     </template>
