@@ -9,7 +9,19 @@ export default {
       colors: {
         'media-brand': 'rgb(var(--media-brand) / <alpha-value>)',
         'media-focus': 'rgb(var(--media-focus) / <alpha-value>)'
-      }
+      }, 
+      screens: {
+        sm: '375px',
+        xs: '480px',
+        xsm: '640px',
+        md: '768px',
+        xmd: '880px',
+        lg: '1024px',
+        mlg: '1170px',
+        xmlg: '1200px',
+        xlg: '1280px',
+        xxlg: '1920px',
+      },
     }
   },
   plugins: [

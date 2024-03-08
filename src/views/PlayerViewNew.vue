@@ -138,7 +138,7 @@ const handleClick = () => {
 
 <template>
   <div class="flex flex-col mt-10 ml-10 gap-5 max-w-[1240px]">
-    <label class="flex items-center mb-10 sm:mb-0">
+    <label class="flex items-center mb-10 xsm:mb-0">
       <span class="block min-w-[120px]">Video Url</span>
       <input
         class="flex-1 border border-solid px-3 py-1"
