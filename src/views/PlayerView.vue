@@ -133,7 +133,8 @@ function onCanPlay(event: MediaCanPlayEvent) {
 }
 function onPlay(event: MediaPlayEvent) {
   // ...
-  console.log('event play', $player.value!.textTracks?._defaults?.captions?._cues)
+//   console.log('event play', $player.value!.textTracks?._defaults?.captions?._cues)
+  console.log('event play', $player.value!.textTracks)
 }
 </script>
 
