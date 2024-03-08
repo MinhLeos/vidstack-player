@@ -112,12 +112,12 @@ function onCanPlay(event: MediaCanPlayEvent) {
 }
 function onPlay(event: MediaPlayEvent) {
   // ...
-  console.log('event play', event)
+//   console.log('event play', event)
 }
 const handleClick = () => {
-  console.log('videoUrl', videoUrl.value)
-  console.log('thumnailUrl', thumnailUrl.value)
-  console.log('trackUrl', trackUrl.value)
+//   console.log('videoUrl', videoUrl.value)
+//   console.log('thumnailUrl', thumnailUrl.value)
+//   console.log('trackUrl', trackUrl.value)
   if (!videoUrl.value?.trim()) {
     alert('nhập url')
     return

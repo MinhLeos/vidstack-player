@@ -139,7 +139,7 @@ function onCanPlay(event: MediaCanPlayEvent) {
 function onPlay(event: MediaPlayEvent) {
   // ...
 //   console.log('event play', $player.value!.textTracks?._defaults?.captions?._cues)
-  console.log('event play', $player.value!.textTracks)
+//   console.log('event play', $player.value!.textTracks)
   const track = $player.value?.textTracks.getById('default');
   const myCues = track?.cues || []
   console.log('myCues play', myCues);

@@ -20,15 +20,10 @@ const isHorizontalScreen = ref(false)
 const isMobile = ref(false)
 
 onMounted(() => {
-  console.log('window.innerWidth', window.innerWidth)
-  console.log('window.innerHeight', window.innerHeight)
-
   isMobile.value = window.innerWidth <= 640
   isHorizontalScreen.value = window.innerWidth > window.innerHeight
 
   window.addEventListener('resize', () => {
-    console.log('window.innerWidth resize', window.innerWidth)
-    console.log('window.innerHeight resize', window.innerHeight)
     isMobile.value = window.innerWidth <= 640
     isHorizontalScreen.value = window.innerWidth > window.innerHeight
   })
