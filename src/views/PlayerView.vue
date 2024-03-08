@@ -53,18 +53,23 @@ onMounted(() => {
     language: 'en-US',
     type: 'vtt',
     default: true,
+    id: 'default'
   }));
 
   $player.value!.textTracks.add(trackNew.value)
   trackNew.value.addEventListener('load', () => {
-    const myCues = $player.value?.textTracks?._defaults?.captions?._cues || []
-    console.log('-------- $player.value!.textTracks', $player.value!.textTracks?._defaults?.captions?._cues);
-    myCues.forEach((cue, index: number) => {
+    // console.log('$player.value?.textTracks', $player.value?.textTracks.toArray());
+    const track = $player.value?.textTracks.getById('default');
+    console.log('track', track);
+    const myCues = track?.cues || []
+    // const myCues = $player.value?.textTracks?._defaults?.captions?._cues || []
+    // console.log('-------- $player.value!.textTracks', $player.value!.textTracks?._defaults?.captions?._cues);
+    myCues.forEach((cue: any, index: number) => {
         if (index % 2 === 0 && myCues[index + 1] !== undefined && myCues[index + 1] !== null ) {
             cue.text += ' ' + myCues[index + 1].text;
             if (!isNaN(myCues[index + 1].endTime)) cue.endTime = myCues[index + 1].endTime;
         } else {
-            cue.text = undefined;
+            cue.text = '';
             cue.endTime = -1;
             cue.startTime = -1;
         }
@@ -135,6 +140,9 @@ function onPlay(event: MediaPlayEvent) {
   // ...
 //   console.log('event play', $player.value!.textTracks?._defaults?.captions?._cues)
   console.log('event play', $player.value!.textTracks)
+  const track = $player.value?.textTracks.getById('default');
+  const myCues = track?.cues || []
+  console.log('myCues play', myCues);
 }
 </script>
 
