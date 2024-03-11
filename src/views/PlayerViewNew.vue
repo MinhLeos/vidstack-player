@@ -14,28 +14,30 @@ import {
   type MediaProviderChangeEvent
 } from 'vidstack'
 import type { MediaPlayerElement } from 'vidstack/elements'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 import VideoLayout from '../components/layouts/VideoLayout.vue'
 import { textTracks } from '../constants/tracks'
 
 const $player = ref<MediaPlayerElement>()
 
-const videoUrl = ref('')
-const videoUrlDefault = ref('https://d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8')
-const thumnailUrl = ref('')
+const videoUrlDefault = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/asset-a6974600-348d-4d12-8633-7bb7b8f5d785/test-by-ngan.m3u8')
+// const videoUrlDefault = ref('https://d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8')
+// const thumnailUrlDefault = ref(
+//   ''
+// )
 const thumnailUrlDefault = ref(
   'https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/storyboard.vtt'
 )
+const trackUrlDefault = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/asset-a6974600-348d-4d12-8633-7bb7b8f5d785/transcript.vtt')
+// const trackUrlDefault = ref('https://media-files.vidstack.io/sprite-fight/subs/english.vtt')
+
+const posterUrl = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/asset-a6974600-348d-4d12-8633-7bb7b8f5d785/Thumbnail000001.jpg?auto=compress,format');
+// const posterUrl = ref('https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/thumbnail.webp?time=268&width=1200');
+const videoUrl = ref('')
+const thumnailUrl = ref('')
 const trackUrl = ref('')
-const trackUrlDefault = ref('https://media-files.vidstack.io/sprite-fight/subs/english.vtt')
-const track = {
-  src: 'https://media-files.vidstack.io/sprite-fight/subs/english.vtt',
-  label: 'English 1',
-  language: 'en-US',
-  kind: 'subtitles',
-  default: true
-}
+
 onMounted(() => {
   /**
    * You can add these tracks using HTML as well.
@@ -48,7 +50,43 @@ onMounted(() => {
    * </media-provider>
    * ```
    */
-  //   $player.value!.textTracks.add(track)
+    const trackNew = computed(() => new TextTrack({
+    src: trackUrlDefault.value,
+    kind: 'subtitles',
+    label: 'English',
+    language: 'en-US',
+    type: 'vtt',
+    default: true,
+    id: 'default'
+  }));
+
+  $player.value!.textTracks.add(trackNew.value)
+  trackNew.value.addEventListener('load', () => {
+    // console.log('$player.value?.textTracks', $player.value?.textTracks.toArray());
+    const track = $player.value?.textTracks.getById('default');
+    // console.log('track', track);
+    const myCues = track?.cues || []
+    // const myCues = $player.value?.textTracks?._defaults?.captions?._cues || []
+    // console.log('-------- $player.value!.textTracks', $player.value!.textTracks?._defaults?.captions?._cues);
+    myCues.forEach((cue: any, index: number) => {
+        if (index % 2 === 0 && myCues[index + 1] !== undefined && myCues[index + 1] !== null ) {
+            cue.text += ' ' + myCues[index + 1].text;
+            if (!isNaN(myCues[index + 1].endTime)) cue.endTime = myCues[index + 1].endTime;
+        } else {
+            cue.text = '';
+            cue.endTime = -1;
+            cue.startTime = -1;
+        }
+    })
+  });
+      $player.value!.textTracks.addEventListener('add', (event) => {
+      const newTrack = event.detail; // `TextTrack`
+      console.log('newTrack add', newTrack);
+        if (newTrack.label == '' || newTrack.label === 'English Default' || newTrack.label === 'English D') {
+            newTrack.mode = 'showing'
+        }
+      // ...
+    });
   //   console.log('click')
 
   //   document.body.click()
@@ -58,20 +96,20 @@ onMounted(() => {
   //   }
   //   console.log('$player.value!.textTracks', $player.value!.textTracks);
 
-    $player.value!.textTracks.addEventListener('add', (event) => {
-      const newTrack = event.detail; // `TextTrack`
-      console.log('newTrack add', newTrack);
-        if (newTrack.label == '' || newTrack.label === 'English Default' || newTrack.label === 'English D') {
-            newTrack.mode = 'showing'
-        }
-      // ...
-    });
-    $player.value!.textTracks.addEventListener('mode-change', (event) => {
-      const newTrack = event.detail; // `TextTrack`
-      console.log('newTrack mode-change', newTrack);
+  // $player.value!.textTracks.addEventListener('add', (event) => {
+  //   const newTrack = event.detail; // `TextTrack`
+  //   console.log('newTrack add', newTrack);
+  //     if (newTrack.label == '' || newTrack.label === 'English Default' || newTrack.label === 'English D') {
+  //         newTrack.mode = 'showing'
+  //     }
+  //   // ...
+  // });
+  // $player.value!.textTracks.addEventListener('mode-change', (event) => {
+  //   const newTrack = event.detail; // `TextTrack`
+  //   console.log('newTrack mode-change', newTrack);
 
-      // ...
-    });
+  //   // ...
+  // });
 
   //Modify Track
   //   const trackNew = new TextTrack({
@@ -98,6 +136,7 @@ onMounted(() => {
   })
 })
 
+
 function onProviderChange(event: MediaProviderChangeEvent) {
   const provider = event.detail
   // We can configure provider's here.
@@ -112,7 +151,13 @@ function onCanPlay(event: MediaCanPlayEvent) {
 }
 function onPlay(event: MediaPlayEvent) {
   // ...
-//   console.log('event play', event)
+//   console.log('event play', $player.value!.textTracks?._defaults?.captions?._cues)
+//   console.log('event play', $player.value!.textTracks)
+  const track = $player.value?.textTracks;
+//   const myCues = track?.cues || []
+//   console.log('myCues play', myCues);
+  console.log('track play', track);
+
 }
 const handleClick = () => {
 //   console.log('videoUrl', videoUrl.value)
@@ -122,6 +167,7 @@ const handleClick = () => {
     alert('nhập url')
     return
   }
+  $player.value!.textTracks.clear()
     $player.value!.textTracks.add({
       src: trackUrl.value,
       label: 'English Default',
@@ -137,7 +183,8 @@ const handleClick = () => {
 </script>
 
 <template>
-  <div class="tw-video-flex tw-video-flex-col tw-video-mt-10 tw-video-ml-10 tw-video-gap-5 tw-video-max-w-[1240px]">
+    <div>
+        <div class="tw-video-flex tw-video-flex-col tw-video-mt-10 tw-video-ml-10 tw-video-gap-5 tw-video-max-w-[1240px] tw-video-mb-10">
     <label class="tw-video-flex tw-video-items-center tw-video-mb-10 xsm:tw-video-mb-0">
       <span class="tw-video-block tw-video-min-w-[120px]">Video Url</span>
       <input
@@ -165,12 +212,14 @@ const handleClick = () => {
         v-model="trackUrl"
       />
     </label>
-    <button class="tw-video-border tw-video-border-solid tw-video-w-40 tw-video-m-auto" @click="handleClick">Load Video</button>
+    <button class="tw-video-border tw-video-border-solid tw-video-w-40 tw-video-m-auto hover:tw-video-opacity-70 active:tw-video-opacity-40" @click="handleClick">Load Video</button>
   </div>
-  <div class="tw-video-flex md:tw-video-p-10">
+  <div class="tw-video-flex">
     <media-player
+      load="visible" 
+      posterLoad="visible"
       autoplay
-      class="tw-video-w-full tw-video-max-h-[100vh] tw-video-max-w-[1440px] tw-video-aspect-video tw-video-bg-slate-900 tw-video-text-whittw-video-e font-sans tw-video-overflow-hidden tw-video-rounded-md tw-video-ring-media-focus data-[focus]:tw-video-ring-4 md:tw-video-mt-10 md:tw-video-mx-auto"
+      class="tw-video-w-full tw-video-max-h-[100vh] tw-video-aspect-video tw-video-bg-slate-900 tw-video-text-white tw-video-font-sans tw-video-overflow-hidden tw-video-rounded-md tw-video-ring-media-focus data-[focus]:tw-video-ring-4 md:tw-video-mx-auto"
       title="Sprite Fight"
       :src="videoUrlDefault"
       crossorigin
@@ -183,19 +232,20 @@ const handleClick = () => {
       <media-provider>
         <media-poster
           class="tw-video-absolute tw-video-inset-0 tw-video-block tw-video-h-full tw-video-w-full tw-video-rounded-md tw-video-opacity-0 tw-video-transition-opacity data-[visible]:tw-video-opacity-100 [&>img]:tw-video-h-full [&>img]:tw-video-w-full [&>img]:tw-video-object-cover"
-          src="https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/thumbnail.webp?time=268&width=1200"
+          :src="posterUrl"
           alt="Girl walks into campfire with gnomes surrounding her friend ready for their next meal!"
         />
-        <track
+        <!-- <track
           :src="trackUrlDefault"
           kind="subtitles"
-          label="English D"
+          label="English Default"
           lang="en-US"
           type="vtt"
           default
-        />
+        /> -->
       </media-provider>
       <VideoLayout :thumbnails="thumnailUrlDefault" />
     </media-player>
   </div>
+    </div>
 </template>

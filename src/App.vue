@@ -3,11 +3,12 @@ import { RouterView, RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <!-- <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/about">Dinamic Video Url</RouterLink>
-  </nav> -->
+
   <RouterView />
+    <nav class="tw-video-mt-10">
+    <!-- <RouterLink to="/">Home</RouterLink> -->
+    <RouterLink to="/about">Dinamic Video Url</RouterLink>
+  </nav>
 </template>
 
 <style scoped>
