@@ -21,19 +21,19 @@ import { textTracks } from '../constants/tracks'
 
 const $player = ref<MediaPlayerElement>()
 
-const videoUrlDefault = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/asset-a6974600-348d-4d12-8633-7bb7b8f5d785/test-by-ngan.m3u8')
-// const videoUrlDefault = ref('https://d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8')
+// const videoUrlDefault = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/asset-a6974600-348d-4d12-8633-7bb7b8f5d785/test-by-ngan.m3u8')
+const videoUrlDefault = ref('https://d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8')
 // const thumnailUrlDefault = ref(
 //   ''
 // )
 const thumnailUrlDefault = ref(
   'https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/storyboard.vtt'
 )
-const trackUrlDefault = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/asset-a6974600-348d-4d12-8633-7bb7b8f5d785/transcript.vtt')
-// const trackUrlDefault = ref('https://media-files.vidstack.io/sprite-fight/subs/english.vtt')
+// const trackUrlDefault = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/asset-a6974600-348d-4d12-8633-7bb7b8f5d785/transcript.vtt')
+const trackUrlDefault = ref('https://media-files.vidstack.io/sprite-fight/subs/english.vtt')
 
-const posterUrl = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/asset-a6974600-348d-4d12-8633-7bb7b8f5d785/Thumbnail000001.jpg?auto=compress,format');
-// const posterUrl = ref('https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/thumbnail.webp?time=268&width=1200');
+// const posterUrl = ref('https://dan-le-blob-cdn-production.glb.edgio.link/migrated-assets/asset-a6974600-348d-4d12-8633-7bb7b8f5d785/Thumbnail000001.jpg?auto=compress,format');
+const posterUrl = ref('https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/thumbnail.webp?time=268&width=1200');
 const videoUrl = ref('')
 const thumnailUrl = ref('')
 const trackUrl = ref('')
